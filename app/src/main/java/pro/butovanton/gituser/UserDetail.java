@@ -1,9 +1,12 @@
 package pro.butovanton.gituser;
 
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class UserDetail {
+public class UserDetail extends BaseObservable {
 
     @SerializedName("login")
     @Expose
@@ -37,4 +40,13 @@ public class UserDetail {
     @Expose
     String updated_at;
 
+    @Bindable
+    public String getName() {
+        return name;
+    }
+
+    @Bindable
+    public void setName(String name) {
+        this.name = name;
+    }
 }
