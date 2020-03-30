@@ -21,6 +21,9 @@ public class Repo {
     MutableLiveData<List<User>> userMutableLiveData = new MutableLiveData<>();
     List<User> listUsers = new ArrayList<>();
 
+    MutableLiveData<UserDetail> userDetailMutableLiveData = new MutableLiveData<>();
+    UserDetail userDetail = new UserDetail();
+
     private Repo() {
         networkService = NetworkService.getInstance();
         jsonPlaceHolderApi = networkService.getJSONApi();
@@ -44,8 +47,20 @@ public class Repo {
         return userMutableLiveData;
     }
 
-    public User getUser(int Id) {
-        return listUsers.get(Id);
+    public LiveData<UserDetail> getUserDetail(String login)    {
+
+        jsonPlaceHolderApi.getUserDetail(login).enqueue(new Callback<UserDetail>() {
+            @Override
+            public void onResponse(Call<UserDetail> call, Response<UserDetail> response) {
+                userDetailMutableLiveData.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<UserDetail> call, Throwable t) {
+                Log.d("DEBUG", t.toString());
+            }
+        });
+        return userDetailMutableLiveData;
     }
 
     public static synchronized Repo getInstance() {

@@ -53,6 +53,13 @@ class RecyclerAdapterGit extends RecyclerView.Adapter<RecyclerAdapterGit.ViewHol
                 .avatar_url)
                 .into(holder.imageView);
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firstFragment.onItemClick(listUsers.get(position).login);
+            }
+        });
+
     }
 
     @Override
@@ -76,13 +83,6 @@ class RecyclerAdapterGit extends RecyclerView.Adapter<RecyclerAdapterGit.ViewHol
             super(view);
             loginTextView = (TextView) view.findViewById(R.id.name);
             imageView =  view.findViewById(R.id.imageView);
-
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    firstFragment.onItemClick(getAdapterPosition());
-                }
-            });
 
         }
 

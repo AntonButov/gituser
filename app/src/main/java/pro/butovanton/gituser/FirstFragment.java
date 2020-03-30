@@ -94,10 +94,10 @@ private final int PERPAGE = 10;
     }
 
     @Override
-    public void onItemClick(int position) {
+    public void onItemClick(String login) {
         Bundle bundle = new Bundle();
-        bundle.putInt("userId", position);
-        NavHostFragment.findNavController(FirstFragment.this)
+        bundle.putString("login", login);
+        NavHostFragment.findNavController(this)
                 .navigate(R.id.action_FirstFragment_to_SecondFragment, bundle);
     }
 }
