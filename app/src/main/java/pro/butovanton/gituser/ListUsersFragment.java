@@ -7,10 +7,12 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import androidx.lifecycle.ViewModelProviders;
 import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -71,16 +73,6 @@ private final int PERPAGE = 10;
         recyclerView.setLayoutManager( lm );
 
         recyclerView.setAdapter(adapter);
-        viewModelMain = new ViewModelMain();
-        viewModelMain.getUsers(i,PERPAGE).observe(getViewLifecycleOwner(), new Observer<List<User>>() {
-            @Override
-            public void onChanged(List<User> listUser) {
-                progressBar.setVisibility(View.INVISIBLE);
-                adapter.adnotify(listUser);
-
-            }
-        });
-
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
@@ -104,5 +96,21 @@ private final int PERPAGE = 10;
         bundle.putString("login", login);
         NavHostFragment.findNavController(this)
                 .navigate(R.id.action_FirstFragment_to_SecondFragment, bundle);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        viewModelMain =  ViewModelProviders.of(this).get(ViewModelMain.class);
+        viewModelMain.getUsers(i,PERPAGE).observe(getViewLifecycleOwner(), new Observer<List<User>>() {
+            @Override
+            public void onChanged(List<User> listUser) {
+                progressBar.setVisibility(View.INVISIBLE);
+                adapter.adnotify(listUser);
+
+            }
+        });
+
     }
 }

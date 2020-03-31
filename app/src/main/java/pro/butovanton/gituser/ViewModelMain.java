@@ -6,7 +6,11 @@ import androidx.lifecycle.ViewModel;
 import java.util.List;
 
 
-class ViewModelMain extends ViewModel {
+public class ViewModelMain extends ViewModel {
+
+    public ViewModelMain() {
+
+    }
 
 public LiveData<List<User>> getUsers(int i, int p ) {
     return Repo.getInstance().getUsers(i,p);
