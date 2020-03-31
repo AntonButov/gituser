@@ -19,6 +19,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import pro.butovanton.gituser1.R;
@@ -47,14 +48,24 @@ public class UserDetailFragment extends Fragment {
 
         Bundle bundle = getArguments();
         String login = bundle.getString("login");
-
+        binding.progressBarDetail.setVisibility(View.VISIBLE);
         Repo.getInstance().getUserDetail(login).observe(getViewLifecycleOwner(), new Observer<UserDetail>() {
             @Override
             public void onChanged(UserDetail userDetail) {
                 Picasso
                         .get()
                         .load(userDetail.avatar_url)
-                        .into(binding.imageViewSecond);
+                        .into(binding.imageViewSecond, new Callback() {
+                            @Override
+                            public void onSuccess() {
+                                binding.progressBarDetail.setVisibility(View.INVISIBLE);
+                            }
+
+                            @Override
+                            public void onError(Exception e) {
+
+                            }
+                        });
 
                 if (userDetail.email == null) binding.emailtextView.setVisibility(View.INVISIBLE);
                 if (userDetail.bio == null) binding.biotextView.setVisibility(View.INVISIBLE);
