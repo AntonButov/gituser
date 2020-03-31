@@ -38,12 +38,17 @@ class RecyclerAdapterGit extends RecyclerView.Adapter<RecyclerAdapterGit.ViewHol
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final RecyclerAdapterGit.ViewHolderGit holder, final int position) {
-        holder.loginTextView.setText(listUsers.get(position).login);
-        holder.loginTextView.setAlpha(0f);
+    public void onViewAttachedToWindow(@NonNull ViewHolderGit holder) {
+        super.onViewAttachedToWindow(holder);
+       holder.loginTextView.setAlpha(0f);
         holder.loginTextView.animate()
                 .alpha(1f)
-                .setDuration(1000);
+                .setDuration(500);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull final RecyclerAdapterGit.ViewHolderGit holder, final int position) {
+        holder.loginTextView.setText(listUsers.get(position).login);
 
         Picasso
                 .get()

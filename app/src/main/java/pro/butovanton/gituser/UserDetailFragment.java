@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.squareup.picasso.Picasso;
 
@@ -27,6 +28,7 @@ import pro.butovanton.gituser1.databinding.FragmentSecondBinding;
 public class UserDetailFragment extends Fragment {
 
     private FragmentSecondBinding binding;
+    private ViewModelMain viewModelMain;
 
     @Override
     public View onCreateView(
@@ -86,6 +88,6 @@ public class UserDetailFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+    viewModelMain = new ViewModelProvider(this).get(ViewModelMain.class);
     }
 }

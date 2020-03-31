@@ -102,7 +102,7 @@ private final int PERPAGE = 10;
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        viewModelMain =  ViewModelProviders.of(this).get(ViewModelMain.class);
+        viewModelMain =  new ViewModelProvider(this).get(ViewModelMain.class);
         viewModelMain.getUsers(i,PERPAGE).observe(getViewLifecycleOwner(), new Observer<List<User>>() {
             @Override
             public void onChanged(List<User> listUser) {
