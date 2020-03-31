@@ -7,7 +7,6 @@ import java.util.List;
 
 
 class ViewModelMain extends ViewModel {
- //   public RecyclerAdapterGit recyclerAdapterGit;
 
 public LiveData<List<User>> getUsers(int i, int p ) {
     return Repo.getInstance().getUsers(i,p);

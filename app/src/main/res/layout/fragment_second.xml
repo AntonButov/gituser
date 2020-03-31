@@ -84,7 +84,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:text='@{"created_at: " + userDetail.created_at}'
+                        android:text='@{"created: " + userDetail.created_at.substring(0,10)}'
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/followerstextView" />
 
@@ -93,7 +93,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:text='@{"updated_at: " + userDetail.updated_at}'
+                        android:text='@{"updated: " + userDetail.updated_at.substring(0,10)}'
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/createdtextView" />
 

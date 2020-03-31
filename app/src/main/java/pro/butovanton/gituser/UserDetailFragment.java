@@ -13,21 +13,15 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.databinding.Bindable;
 import androidx.databinding.DataBindingUtil;
-import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Observer;
-import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 
 import com.squareup.picasso.Picasso;
 
 import pro.butovanton.gituser1.R;
 import pro.butovanton.gituser1.databinding.FragmentSecondBinding;
-//import pro.butovanton.gituser1.databinding.FragmentSecondBinding;
+
 
 public class UserDetailFragment extends Fragment {
 
