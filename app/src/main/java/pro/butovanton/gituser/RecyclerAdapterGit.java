@@ -19,12 +19,12 @@ import pro.butovanton.gituser1.R;
 
 class RecyclerAdapterGit extends RecyclerView.Adapter<RecyclerAdapterGit.ViewHolderGit> {
 
-    private FirstFragment firstFragment;
+    private ListUsersFragment listUsersFragment;
     private List<User> listUsers;
     private final LayoutInflater mInflater;
 
-    public RecyclerAdapterGit(FirstFragment firstFragment, Context context) {
-        this.firstFragment = firstFragment;
+    public RecyclerAdapterGit(ListUsersFragment listUsersFragment, Context context) {
+        this.listUsersFragment = listUsersFragment;
         mInflater = LayoutInflater.from(context);
         listUsers = new ArrayList<>();
     }
@@ -34,7 +34,6 @@ class RecyclerAdapterGit extends RecyclerView.Adapter<RecyclerAdapterGit.ViewHol
     public ViewHolderGit onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.item, parent, false);
         ViewHolderGit vh = new ViewHolderGit(view);
-
         return vh;
     }
 
@@ -56,7 +55,7 @@ class RecyclerAdapterGit extends RecyclerView.Adapter<RecyclerAdapterGit.ViewHol
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                firstFragment.onItemClick(listUsers.get(position).login);
+                listUsersFragment.onItemClick(listUsers.get(position).login);
             }
         });
 
@@ -67,10 +66,8 @@ class RecyclerAdapterGit extends RecyclerView.Adapter<RecyclerAdapterGit.ViewHol
         return listUsers.size();
     }
 
-
     public void adnotify(List<User> listUsers) {
         this.listUsers = listUsers;
-
         notifyDataSetChanged();
     }
 
@@ -78,14 +75,11 @@ class RecyclerAdapterGit extends RecyclerView.Adapter<RecyclerAdapterGit.ViewHol
         private final TextView loginTextView;
         private final ImageView imageView;
 
-
         public ViewHolderGit(View view) {
             super(view);
             loginTextView = (TextView) view.findViewById(R.id.name);
             imageView =  view.findViewById(R.id.imageView);
-
         }
-
 
     }
 

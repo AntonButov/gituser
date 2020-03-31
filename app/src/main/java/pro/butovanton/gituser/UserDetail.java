@@ -6,7 +6,7 @@ import androidx.databinding.Bindable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class UserDetail extends BaseObservable {
+public class UserDetail  {
 
     @SerializedName("login")
     @Expose
@@ -40,13 +40,47 @@ public class UserDetail extends BaseObservable {
     @Expose
     String updated_at;
 
-    @Bindable
+    @SerializedName("followers")
+    @Expose
+    String followers;
+
+    @SerializedName("following")
+    @Expose
+    String following;
+
+    public String getLogin() {
+        return login;
+    }
+
     public String getName() {
         return name;
     }
 
-    @Bindable
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public String getUpdated_at() {
+        return updated_at;
+    }
+
+    public String getFollowers() {
+        return followers;
+    }
+
+    public String getFollowing() {
+        return following;
     }
 }

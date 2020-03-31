@@ -32,7 +32,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
                 android:elevation="3dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -41,26 +41,80 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="10dp">
+                    android:padding="24dp">
 
                     <TextView
                         android:id="@+id/logintextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="loginTextView"
+                        android:text='@{"login: " + userDetail.login}'
                         android:textSize="24dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/nametextView"
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:text="@{userDetail.name}"
+                        android:text='@{"name: " + userDetail.name}'
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/logintextView" />
+
+                    <TextView
+                        android:id="@+id/followingtextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text='@{"following: " + userDetail.following}'
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/nametextView" />
+
+                    <TextView
+                        android:id="@+id/followerstextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text='@{"followers: " + userDetail.followers}'
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/followingtextView" />
+
+                    <TextView
+                        android:id="@+id/createdtextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text='@{"created_at: " + userDetail.created_at}'
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/followerstextView" />
+
+                    <TextView
+                        android:id="@+id/updated_attextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text='@{"updated_at: " + userDetail.updated_at}'
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/created_attextView" />
+
+                    <TextView
+                        android:id="@+id/emailtextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text='@{"email: " + userDetail.email}'
+                        app:layout_constraintStart_toEndOf="parent"
+                        app:layout_constraintTop_toOf="parent" />
+
+                    <TextView
+                        android:id="@+id/biotextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text='@{"bio: " + userDetail.bio}'
+                        app:layout_constraintStart_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/emailtextView" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 

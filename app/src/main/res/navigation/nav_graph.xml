@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="pro.butovanton.gituser.FirstFragment"
+        android:name="pro.butovanton.gituser.ListUsersFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/fragment_listusers">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="pro.butovanton.gituser.SecondFragment"
+        android:name="pro.butovanton.gituser.UserDetailFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
 
