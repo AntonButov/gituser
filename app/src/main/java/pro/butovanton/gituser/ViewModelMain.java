@@ -2,9 +2,7 @@ package pro.butovanton.gituser;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
-
 import java.util.List;
-
 
 public class ViewModelMain extends ViewModel {
 
