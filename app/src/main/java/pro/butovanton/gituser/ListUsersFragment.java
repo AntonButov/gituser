@@ -29,7 +29,7 @@ private RecyclerView recyclerView;
 private RecyclerAdapterGit adapter;
 private LinearLayoutManager lm;
 private ProgressBar progressBar;
-private int i = 1;
+private int userUd = 1;
 private FloatingActionButton nextButton, prevButton;
 private final int PERPAGE = 10;
 
@@ -51,16 +51,16 @@ private final int PERPAGE = 10;
         prevButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                i = i - PERPAGE;
-                getData(i, PERPAGE);
+                userUd = userUd - PERPAGE;
+                getData(userUd, PERPAGE);
             }
         });
         nextButton = view.findViewById(R.id.fabnext);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                i = i + PERPAGE;
-                getData(i, PERPAGE);
+                userUd = userUd + PERPAGE;
+                getData(userUd, PERPAGE);
             }
         });
 
@@ -76,7 +76,7 @@ private final int PERPAGE = 10;
                 super.onScrolled(recyclerView, dx, dy);
                 if ((lm.findLastVisibleItemPosition() + 1) % PERPAGE == 0) nextButton.show();
                 else nextButton.hide();
-                if (lm.findFirstVisibleItemPosition() % PERPAGE == 0 && i != 1) prevButton.show();
+                if (lm.findFirstVisibleItemPosition() % PERPAGE == 0 && userUd != 1) prevButton.show();
                 else prevButton.hide();
             }
         });
@@ -100,7 +100,7 @@ private final int PERPAGE = 10;
         super.onActivityCreated(savedInstanceState);
 
         viewModelMain =  new ViewModelProvider(this).get(ViewModelMain.class);
-        viewModelMain.getUsers(i,PERPAGE).observe(getViewLifecycleOwner(), new Observer<List<User>>() {
+        viewModelMain.getUsers(userUd,PERPAGE).observe(getViewLifecycleOwner(), new Observer<List<User>>() {
             @Override
             public void onChanged(List<User> listUser) {
                 progressBar.setVisibility(View.INVISIBLE);
