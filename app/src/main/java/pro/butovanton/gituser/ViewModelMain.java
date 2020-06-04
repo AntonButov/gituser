@@ -1,21 +1,63 @@
 package pro.butovanton.gituser;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
+import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ViewModelMain extends ViewModel {
 
-    public ViewModelMain() {
+    private NetworkService networkService;
+    private JSONPlaceHolderApi jsonPlaceHolderApi;
+    MutableLiveData<List<User>> userMutableLiveData = new MutableLiveData<>();
+    List<User> listUsers = new ArrayList<>();
 
+    MutableLiveData<UserDetail> userDetailMutableLiveData = new MutableLiveData<>();
+
+    public ViewModelMain() {
+        networkService = NetworkService.getInstance();
+        jsonPlaceHolderApi = networkService.getJSONApi();
     }
 
-public LiveData<List<User>> getUsers(int i, int p ) {
-    return Repo.getInstance().getUsers(i,p);
-}
+    public LiveData<List<User>> getUsers(Integer i, Integer p) {
 
-public LiveData<UserDetail> getUserDetail(String login) {
-   return Repo.getInstance().getUserDetail(login);
-}
+        jsonPlaceHolderApi.getUsers(i,p).enqueue(new Callback<List<User>>() {
+            @Override
+            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+                listUsers = response.body();
+                userMutableLiveData.setValue(listUsers);
+            }
+
+            @Override
+            public void onFailure(Call<List<User>> call, Throwable t) {
+                Log.d("DEBUG", t.toString());
+            }
+        });
+        return userMutableLiveData;
+    }
+
+    public LiveData<UserDetail> getUserDetail(String login)    {
+
+        jsonPlaceHolderApi.getUserDetail(login).enqueue(new Callback<UserDetail>() {
+            @Override
+            public void onResponse(Call<UserDetail> call, Response<UserDetail> response) {
+                userDetailMutableLiveData.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<UserDetail> call, Throwable t) {
+                Log.d("DEBUG", t.toString());
+            }
+        });
+        return userDetailMutableLiveData;
+    }
 
 }
