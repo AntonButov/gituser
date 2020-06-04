@@ -15,7 +15,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-import pro.butovanton.gituser1.R;
+import pro.butovanton.gituser.R;
 
 class RecyclerAdapterGit extends RecyclerView.Adapter<RecyclerAdapterGit.ViewHolderGit> {
 

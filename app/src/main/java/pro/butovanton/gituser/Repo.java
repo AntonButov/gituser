@@ -22,7 +22,6 @@ public class Repo {
     List<User> listUsers = new ArrayList<>();
 
     MutableLiveData<UserDetail> userDetailMutableLiveData = new MutableLiveData<>();
-    UserDetail userDetail = new UserDetail();
 
     private Repo() {
         networkService = NetworkService.getInstance();

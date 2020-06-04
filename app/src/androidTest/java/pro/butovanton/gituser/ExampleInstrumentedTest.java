@@ -1,4 +1,4 @@
-package pro.butovanton.gituser1;
+package pro.butovanton.gituser;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("pro.butovanton.gituser1", appContext.getPackageName());
+        assertEquals("pro.butovanton.gituser", appContext.getPackageName());
     }
 }

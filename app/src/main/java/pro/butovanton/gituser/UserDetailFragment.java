@@ -1,15 +1,11 @@
 package pro.butovanton.gituser;
 
 import android.os.Bundle;
-import android.renderscript.ScriptGroup;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
@@ -22,9 +18,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
-import pro.butovanton.gituser1.R;
-import pro.butovanton.gituser1.databinding.FragmentSecondBinding;
-
+import pro.butovanton.gituser.databinding.FragmentSecondBinding;
 
 public class UserDetailFragment extends Fragment {
 

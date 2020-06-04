@@ -1,4 +1,4 @@
-package pro.butovanton.gituser1;
+package pro.butovanton.gituser;
 
 import org.junit.Test;
 

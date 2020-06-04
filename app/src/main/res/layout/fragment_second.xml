@@ -27,7 +27,7 @@
                 android:id="@+id/imageViewSecond"
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
-                android:src="@android:drawable/ic_menu_report_image" />
+                android:src="@drawable/ic_wallpaper_black_24dp" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView"

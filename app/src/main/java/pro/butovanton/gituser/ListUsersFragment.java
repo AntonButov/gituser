@@ -19,7 +19,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
-import pro.butovanton.gituser1.R;
+import pro.butovanton.gituser.R;
 
 public class ListUsersFragment extends Fragment implements ItemClickListener {
 
@@ -84,7 +84,7 @@ private final int PERPAGE = 10;
 
     void getData(int i, int PERPAGE) {
         progressBar.setVisibility(View.VISIBLE);
-        Repo.getInstance().getUsers(i,PERPAGE);
+        viewModelMain.getUsers(i,PERPAGE);
     }
 
     @Override
