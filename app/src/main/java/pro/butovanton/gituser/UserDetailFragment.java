@@ -38,12 +38,11 @@ public class UserDetailFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        //imageView = view.findViewById(R.id.imageViewSecond);
-
         Bundle bundle = getArguments();
         String login = bundle.getString("login");
         binding.progressBarDetail.setVisibility(View.VISIBLE);
-        Repo.getInstance().getUserDetail(login).observe(getViewLifecycleOwner(), new Observer<UserDetail>() {
+        viewModelMain = new ViewModelProvider(requireActivity()).get(ViewModelMain.class);
+        viewModelMain.getUserDetail(login).observe(getViewLifecycleOwner(), new Observer<UserDetail>() {
             @Override
             public void onChanged(UserDetail userDetail) {
                 Picasso
@@ -80,7 +79,6 @@ public class UserDetailFragment extends Fragment {
         ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
-
     }
 
     void animatiorTextView(TextView textView) {
@@ -93,6 +91,5 @@ public class UserDetailFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-    viewModelMain = new ViewModelProvider(this).get(ViewModelMain.class);
     }
 }
