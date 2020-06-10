@@ -11,7 +11,6 @@ public class NetworkService {
     private NetworkService() {
         mRetrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
-
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
